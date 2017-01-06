@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Page</title>
+  </head>
+  <body>
+    <h1><%= @user.name %></h1>
+    <%= flash[:message] if flash[:message] %>
+    <ul>
+      <li>Nausea: <%= @user.nausea %></li>
+      <li>Happiness: <%= @user.happiness %></li>
+      <li>Tickets: <%= @user.tickets %></li>
+      <li>Height: <%= @user.height %></li>
+      <li>Mood: <%= @user.mood if @user.happiness || @user.nausea %></li>
+      <li><%= "ADMIN" if @user.admin %></li>
+    </ul>
+    <%= link_to "See attractions", attractions_path %>
+  </body>
+</html>

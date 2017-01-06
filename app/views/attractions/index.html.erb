@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Attractions</title>
+  </head>
+  <body>
+    <% @attractions.each do |a| %>
+      <h1><%= a.name %></h1>
+      <% if current_user && current_user.admin %>
+      <%= link_to "Show #{a.name}", attraction_path(a) %>
+      <% else %>
+      <%= link_to "Go on #{a.name}", attraction_path(a) %>
+      <% end %>
+    <% end %>
+  </body>
+</html>
